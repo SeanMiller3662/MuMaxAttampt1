@@ -1,0 +1,17 @@
+Aex = 13e-12
+Msat = 0.8e6
+alpha = 0.02
+
+setGridsize(128, 32, 1)
+setCellSize(500e-9/128, 125e-9/32, 3e-9)
+
+m = Uniform(1, 0.1, 0)
+relax()
+
+autosave(m, 200e-12)
+tableautosave(10e-12)
+
+
+B_ext = vector(-24.6e-3,4.3e-3,0)
+
+run(1e-9)
