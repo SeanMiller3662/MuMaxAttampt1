@@ -1,45 +1,19 @@
+#Standard Problem 4
 
-Nx := 64
-Nz := 32
-setgridsize(Nx, Nx, Nz)
-
-Msat = 800e3
 Aex = 13e-12
+Msat = 0.8e6
+alpha = 0.02
 
-Ef := 0.0
-Ev := 0.0
-L := 0.0
-tableAddVar(L, “L”, “m”)
-tableAddVar(Ef, “E-Flower”, “J”)
-tableAddVar(Ev, “E-Vortex”, “J”)
+setGridsize(128, 32, 1)
+setCellSize(500e-9/128, 125e-9/32, 3e-9)
 
-for L=50e-9 ; L <= 100e-9; L += 2e-9 {
-	height := L/sqrt(2)
-	angle := atan(sqrt(2))
+m = Uniform(1, 0.1, 0)
+relax()
 
-	setcellsize(L/Nx, L/Nx, height/Nz)
+autosave(m, 200e-12)
+tableautosave(10e-12)
 
-	s1 := zrange(-inf, 0).rotY( angle)
-	s2 := zrange(-inf, 0).rotY( -angle)
-	s3 := zrange(-inf, 0).rotY( angle)
-	s4 := zrange(-inf, 0).rotY( -angle)
-	
-	pyramid := s1.intersect(s2).intersect(s3).intersect(s4)
 
-	dz := height/2 + 0.1 * height/Nz
-	pyramid = pyramid.transl(0, 0, dz)
+B_ext = vector(-24.6e-3,4.3e-3,0)
 
-	setgeom(pyramid)
-
-	m = uniform(1, 0, 1)
-	minimize()
-
-	Ef - E_total.get()
-
-	m = vortex(1, -1)
-	minimize()
-	Ev = E_total.get()
-
-	tablesave()
-
-}
+run(1e-9)
