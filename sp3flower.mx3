@@ -3,7 +3,7 @@ Msat=sqrt(2/mu0)
 anisU = vector(1,0,0)
 Ku1 = 0.1
 SetGridSize(64,64,64)
-m = (1, 0.1, 0)
+m = uniform(1, 0.1, 0)
 
 Lmin := 8
 Lmax := 9
