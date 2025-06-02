@@ -1,7 +1,7 @@
 SetGridSize(100,100,1)
 SetCellSize(1e-9,1e-9,1e-9)
 
-real := imageShape("Square.png").scale(1, 1, 1).transl(20e-9, 20e-9, 0)
+real := imageShape("Square.png").scale(1, 1, 1)
 
 defregion(1, real)
 m = uniform(0,0,0)
@@ -9,20 +9,3 @@ m.setregion(1, uniform(1, 0.1,0))
 relax()
 save(m)
 
-
-SetGridSize(100, 100, 1)
-SetCellSize(1e-9, 1e-9, 1e-9)
-
-// Load and transform image shape
-real := image("Square.png").scale(1, 1, 1).transl(20e-9, 20e-9, 0)
-
-// Define region from image
-defRegion(1, real)
-
-// Set default magnetization
-m = uniform(0, 0, 0)
-m.setRegion(1, uniform(1, 0.1, 0))
-
-// Relax and save
-relax()
-save(m)
