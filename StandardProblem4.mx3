@@ -1,0 +1,14 @@
+Aex = 1.3e-11
+Msat = 8e5
+SetGridSize(128, 32, 1)
+lex := sqrt(2*Aex/(mu0*(Msat * Msat)))
+SetCellSize(500e-9/lex, 125e-9/lex, 3e-9/lex)
+alpha = 0.02
+B_ext = vector(-24.6e-3, 4.3e-3, 0)
+m = uniform(1, 0.1, 0)
+relax()
+save(m)
+
+autosave(m, 200e-12)
+tableautosave(10e-12)
+run(1e-9)
