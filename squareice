@@ -1,4 +1,4 @@
-SetGridSize(1200,1200,1)
+SetGridSize(1920,1440,1)
 SetCellSize(1e-9,1e-9,1e-9)
 
 real := imageShape("Square.png").scale(1, 1, 1)
