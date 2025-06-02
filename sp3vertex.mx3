@@ -1,0 +1,18 @@
+Aex=1
+Msat=sqrt(2/mu0)
+anisU = vector(1,0,0)
+Ku1 = 0.1
+SetGridSize(64,64,64)
+m = vortex(1, -1)
+
+Lmin := 8
+Lmax := 9
+Lstep := 0.05
+tableadd(E_total)
+tableaddvar(L, "L", "")
+
+For L := Lmin; L <= Lmax; L+= Lstep{
+    SetCellSize(L/64,L/64,L/64)
+    minimize()
+    tablesave()
+}
