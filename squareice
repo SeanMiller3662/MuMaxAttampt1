@@ -1,14 +1,11 @@
 SetGridSize(100,100,1)
 SetCellSize(1e-9,1e-9,1e-9)
 
-rec := Rect(10e-9, 5e-9).Transl(20e-9, 20e-9,0)
-circ1 := Circle(5e-9).transl(-5e-9, 0, 0)
-circ2 := Circle(5e-9).transl(5e-9, 0, 0)
+real := imageShape("Square.png").scale(1, 1, 1).transl(20e-9, 20e-9, 0)
 
-spin1 := rec.Add(circ1).Add(circ2)
-
-DefRegion(1, spin1)
+defregion(1, real)
 m = uniform(0,0,0)
-m.SetRegion(1, vortex(1, -1))
+m.setregion(1, vortex(1,1))
 relax()
 save(m)
+
