@@ -2,7 +2,7 @@ SetGridSize(100,100,1)
 SetCellSize(1e-9,1e-9,1e-9)
 
 real := imageShape("Square.png").scale(1, 1, 1)
-
+setgeom(real)
 defregion(1, real)
 m = uniform(0,0,0)
 m.setregion(1, uniform(1, 0.1,0))
