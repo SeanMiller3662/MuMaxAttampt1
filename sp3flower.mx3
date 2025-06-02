@@ -9,6 +9,7 @@ Lmin := 8
 Lmax := 9
 Lstep := 0.05
 tableadd(E_total)
+L := Lmin
 tableaddvar(L, "L", "m")
 
 For L := Lmin; L <= Lmax; L+= Lstep{
