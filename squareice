@@ -9,3 +9,12 @@ m.setregion(1, uniform(1, 0.1,0))
 relax()
 save(m)
 
+
+convert Square.png -colorspace Gray -resize 256x256! square_gray.png
+SetGridSize(256, 256, 1)       // Must match PNG resolution
+SetCellSize(1e-9, 1e-9, 1e-9)  // Set physical size per pixel
+defRegion(1, image("square_gray.png"))
+m.setRegion(1, uniform(1, 0, 0))  // Set magnetization in that shape
+A := 0.0
+A.setRegion(1, 1.0)
+save(A)
