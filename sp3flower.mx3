@@ -12,7 +12,7 @@ tableadd(E_total)
 L := Lmin
 tableaddvar(L, "L", "m")
 
-For L := Lmin; L <= Lmax; L+= Lstep{
+For L := Lmin; L <= Lmax; L= L + Lstep{
     SetCellSize(L/64,L/64,L/64)
     minimize()
     tablesave()
