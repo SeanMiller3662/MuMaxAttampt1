@@ -9,5 +9,5 @@ spin1 := rec.Add(circ1).Add(circ2)
 
 DefRegion(1, spin1)
 m.SetRegion(1, vortex(1, -1))
-
+relax()
 save(m)
