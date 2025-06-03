@@ -1,0 +1,34 @@
+
+SetGridSize(192.0, 384.0, 1.0)
+SetCellSize(1.0e-6/192.0, 2.0e-6/384.0, 20.0e-9.0)
+
+Msat = 8.0e5
+Aex = 1.3e-11
+anisU = vector(0,1.0,0)
+Ku1 = 5.0e2
+alpha = 0.02
+m = uniform(-0.1, -1.0, 0)
+
+angle := pi/180.0
+B_ext = (-0.05*sin(angle), -0.05*cos(angle), 0)
+tableadd(B_ext)
+relax()
+
+B_min := -0.05
+B_max := 0.05
+B_step := 0.0005
+
+for B:= B_min; B<= B_max; B+= B_step{
+    B_ext = vector(B*sin(angle), B*cos(angle), 0)
+    minimize()
+    tablesave()
+    snapshot(m)
+}
+
+
+for B:= B_max; B>= B_min; B-= B_step{
+    B_ext = vector(B*sin(angle), B*cos(angle), 0)
+    minimize()
+    tablesave()
+    snapshot(m)
+}
