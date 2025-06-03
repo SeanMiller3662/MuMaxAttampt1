@@ -10,7 +10,7 @@ alpha = 0.02
 m = uniform(-0.1, -1.0, 0)
 
 angle := pi/180.0
-B_ext = (-0.05*sin(angle), -0.05*cos(angle), 0)
+B_ext = vector(-0.05*sin(angle), -0.05*cos(angle), 0)
 tableadd(B_ext)
 relax()
 
