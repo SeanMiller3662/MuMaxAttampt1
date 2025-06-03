@@ -1,6 +1,6 @@
 
 SetGridSize(192.0, 384.0, 1.0)
-SetCellSize(1.0e-6/192.0, 2.0e-6/384.0, 20.0e-9.0)
+SetCellSize(1.0e-6/192.0, 2.0e-6/384.0, 20.0e-9)
 
 Msat = 8.0e5
 Aex = 1.3e-11
