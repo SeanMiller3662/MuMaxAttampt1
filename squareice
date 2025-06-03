@@ -1,6 +1,6 @@
-SetGridSize(1920,1440,1)
-SetCellSize(1e-9,1e-9,1e-9)
-
+SetGridSize(1725,1725,1)
+SetCellSize(4.2e-9,4.2e-9,4.2e-9)
+SetPBC(10,10,0)
 real := imageShape("Square.png").scale(1, 1, 1)
 setgeom(real)
 defregion(1, real)
