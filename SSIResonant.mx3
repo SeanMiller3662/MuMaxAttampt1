@@ -33,9 +33,9 @@ b_frac:=10
 
 
 fmax := 12.0e9
-T = 2e-9
 t0 := 1/fmax
 delta := 1/(2*fmax)
+duration := 2e-9
 
 
 TableAdd(B_ext)
@@ -43,9 +43,9 @@ TableAdd(E_total)
 MinimizerStop = 1e-6
 
 
-B_ext = Vector(Bmax * cos(angle) , Bmax * sin(angle) , Bmax * sinc(2 * pi * fmax * (T - t0)))
+B_ext = Vector(Bmax * cos(angle) , Bmax * sin(angle) , Bmax * sinc(2 * pi * fmax * (t - t0)))
 minimize()
 
 autosave(m, delta)
 tableautosave(delta)
-run(T)
+run(duration)
