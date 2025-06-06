@@ -1,0 +1,52 @@
+Nx:=512.0
+Nz:=4.0
+
+SetGridSize(Nx,Nx,Nz)
+SetCellSize(1800.0e-9/Nx,1800.0e-9/Nx,10.0e-9/Nz)
+SetPBC(64,64,0)
+real := imageShape("squareice.png").scale(1, 1, 1)
+setgeom(real)
+save(geom)
+
+
+defregion(1, real)
+edgesmooth = 8
+
+Msat = 800e3
+Aex = 13e-12
+alpha = 0.008
+
+m.setregion(1, RandomMag())
+saveas(m,"randomMag")
+relax()
+saveas(m,"Relaxed State")
+
+
+
+
+angle := pi/180
+
+Bmax := 300e-3
+Bmin := -300e-3
+Bstep := 2e-3
+b_frac:=10
+
+
+fmax := 50.0e9
+t0 := 1/fmax
+delta := 1/(2*fmax)
+duration := 2e-9
+
+
+TableAdd(B_ext)
+TableAdd(E_total)
+MinimizerStop = 1e-6
+
+
+B_ext = Vector(Bmax * cos(angle) , Bmax * sin(angle) , Bmax * sinc(2 * pi * fmax * (t - t0)))
+minimize()
+
+
+autosave(m, delta)
+tableautosave(delta)
+run(duration)
