@@ -2,7 +2,7 @@ Nx:=512.0
 Nz:=4.0
 
 SetGridSize(Nx,Nx,Nz)
-SetCellSize(1900.0e-9/Nx,1900.0e-9/Nx,10.0e-9/Nz)
+SetCellSize(1800.0e-9/Nx,1800.0e-9/Nx,10.0e-9/Nz)
 SetPBC(64,64,0)
 real := imageShape("squareice.png").scale(1, 1, 1)
 setgeom(real)
